@@ -1,0 +1,5 @@
+---
+- name: Our first script
+  hosts: local
+  tasks:
+    - ping:

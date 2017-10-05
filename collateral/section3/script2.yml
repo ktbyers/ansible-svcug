@@ -1,0 +1,7 @@
+---
+- name: Introducing debug
+  hosts: local
+  tasks:
+    - name: Print out something
+      debug: 
+        msg: Hello world

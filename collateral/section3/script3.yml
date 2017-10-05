@@ -1,0 +1,11 @@
+---
+- name: Introducing set_fact
+  hosts: local
+  tasks:
+    - name: Set a variable
+      set_fact: 
+        router1: 1.1.1.74
+
+    - name: Print out new variable
+      debug: 
+        msg: "{{ router1 }}"

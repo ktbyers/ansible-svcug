@@ -1,0 +1,10 @@
+---
+- name: More variables
+  hosts: local
+  vars:
+    ntp_server1: 1.1.1.1
+    ntp_server2: 2.2.2.2
+  tasks:
+    - name: Print out variables
+      debug: 
+        msg: "{{ ntp_server1 }} {{ ntp_server2 }}"
