@@ -1,0 +1,13 @@
+$ ansible -m ping all -i ./ans-hosts-ex4
+localhost | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+pynet-rtr2 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+pynet-rtr1 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}

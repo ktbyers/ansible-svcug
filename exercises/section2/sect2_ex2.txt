@@ -1,0 +1,5 @@
+$ ansible -m ping local -i ./ans-hosts-ex1
+localhost | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
