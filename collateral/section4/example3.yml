@@ -1,0 +1,8 @@
+---
+- name: Testing host_vars
+  hosts: cisco
+  tasks:
+    - debug:
+        msg: "{{ peer_ip }}"
+    - debug:
+        msg: "{{ peer_as }}"

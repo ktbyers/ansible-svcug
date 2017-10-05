@@ -1,0 +1,14 @@
+---
+- name: Inventory, Debug, and Set Fact
+  hosts: local
+  tasks:
+    - name: Print out DNS servers
+      debug:
+        msg: "{{ dns1 }} {{ dns2 }}"
+
+    - set_fact:
+        dns3: 4.4.2.2
+    
+    - name: Print out third DNS server
+      debug:
+        var: dns3

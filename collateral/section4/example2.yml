@@ -1,0 +1,7 @@
+---
+- name: Testing group_vars
+  hosts: cisco
+  tasks:
+    - name: Print out BGP AS
+      debug:
+        msg: "{{ bgp_as }}"
