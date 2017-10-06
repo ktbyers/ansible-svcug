@@ -1,0 +1,11 @@
+---
+- name: Retrieve Facts from network device
+  hosts: pynet-rtr1
+  tasks:
+    - ios_command:
+        provider: "{{ ssh_provider }}"
+        commands: "show ip interface"
+      register: output
+
+    - debug:
+        var: output.stdout_lines[0]

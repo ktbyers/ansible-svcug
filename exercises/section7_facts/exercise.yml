@@ -1,18 +1,18 @@
 ---
 - name: Cisco IOS Facts
-  hosts: cisco
+  hosts: pynet-rtr2
   tasks:
     - ios_facts:
         provider: "{{ ssh_provider }}"
 
 - name: NX-OS Facts
-  hosts: nxos
+  hosts: nxos2
   tasks:
     - nxos_facts:
         provider: "{{ nxapi_provider }}"
 
 - name: Print out model
-  hosts: cisco:nxos
+  hosts: pynet-rtr2:nxos2
   tasks:
     - debug:
         var: ansible_net_model

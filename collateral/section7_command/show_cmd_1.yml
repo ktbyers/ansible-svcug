@@ -1,0 +1,17 @@
+---
+- name: Execute show commands
+  hosts: cisco
+  tasks:
+    - ios_command:
+        provider: "{{ ssh_provider }}"
+        commands: show ip int brief 
+      register: output
+
+    - debug:
+        var: output
+
+    - debug:
+        var: output['stdout_lines']
+
+    - debug:
+        var: output['stdout_lines'][0][5]

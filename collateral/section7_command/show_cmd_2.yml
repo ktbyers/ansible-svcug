@@ -1,0 +1,14 @@
+---
+- name: Execute show commands
+  hosts: nxos
+  tasks:
+    - nxos_command:
+        provider: "{{ nxapi_provider }}"
+        commands: show ip arp vrf management
+      register: output_api
+
+    - nxos_command:
+        provider: "{{ ssh_provider }}"
+        commands: show ip arp vrf management
+      register: output_ssh
+
