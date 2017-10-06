@@ -1,0 +1,15 @@
+---
+- name: Retrieve Facts from network device
+  hosts: cisco
+  vars: 
+    ssh_provider:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        timeout: 30
+  tasks:
+    - ios_facts:
+        provider: "{{ ssh_provider }}"
+
+    - debug:
+        var: ansible_net_serialnum

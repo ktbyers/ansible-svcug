@@ -1,0 +1,23 @@
+---
+- name: Retrieve Facts from network device
+  hosts: nxos
+  vars: 
+    ssh_provider:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        timeout: 30
+    nxapi_provider:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        transport: nxapi
+        use_ssl: yes
+        validate_certs: no
+        port: 8443
+        timeout: 30
+  tasks:
+    - nxos_facts:
+        provider: "{{ ssh_provider }}"
+    - nxos_facts:
+        provider: "{{ nxapi_provider }}"
