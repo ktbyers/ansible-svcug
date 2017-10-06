@@ -1,6 +1,6 @@
 ---
 - name: Retrieve Facts from network device
-  hosts: cisco
+  hosts: csr:cisco
   vars: 
     ssh_provider:
         host: "{{ ansible_host }}"

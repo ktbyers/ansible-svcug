@@ -1,0 +1,11 @@
+- name: Loops
+  hosts: local
+  tasks:
+    - debug:
+        msg: "{{ item }}"
+      with_items:
+        - router1
+        - router2
+        - router3
+        - router4
+        - router5
