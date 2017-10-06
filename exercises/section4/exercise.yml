@@ -1,0 +1,11 @@
+---
+- name: Print out variables
+  hosts: cisco
+  tasks:
+    - name: Print out variables
+      debug:
+        msg: | 
+         DNS: {{ dns1 }} {{ dns2 }}
+         Domain: {{ domain }}
+         Common VLANS: {{ common_vlans }}
+         Unique VLANS: {{ unique_vlans }}
