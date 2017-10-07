@@ -1,0 +1,14 @@
+---
+- name: Configure General Items
+  hosts: cisco:csr1
+  vars:
+    dns1: 8.8.8.8
+    dns2: 8.8.4.4
+  tasks:
+    - ios_config:
+        provider: "{{ ssh_provider }}"
+        lines:
+          - "ip name-server {{ dns1 }}"
+          - "ip name-server {{ dns2 }}"
+          - "ntp server {{ ntp1 }}"
+          - "ntp server {{ ntp2 }}"

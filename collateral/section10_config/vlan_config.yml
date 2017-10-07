@@ -1,0 +1,13 @@
+---
+- name: Configure VLANs
+  hosts: nxos
+  vars:
+    vlans:
+      - vlan_id: 800
+        vlan_name: blue800
+      - vlan_id: 801
+        vlan_name: blue801
+      - vlan_id: 802
+        vlan_name: blue802
+
+  tasks:
