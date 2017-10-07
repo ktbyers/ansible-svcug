@@ -1,0 +1,6 @@
+{% for ns in [dns1, dns2] %}
+ip name-server {{ ns }}
+{% endfor %}
+{% for ntp in [ntp1, ntp2] %}
+ntp server {{ ntp }}
+{% endfor %}

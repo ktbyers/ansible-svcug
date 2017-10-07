@@ -1,0 +1,7 @@
+---
+- name: Configure General Items
+  hosts: pynet-rtr1
+  tasks:
+    - ios_config:
+        provider: "{{ ssh_provider }}"
+        src: "{{ inventory_hostname }}-2.txt"
