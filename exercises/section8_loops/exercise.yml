@@ -1,0 +1,18 @@
+---
+- name: Testing loops
+  hosts: local
+  vars:
+    my_routers:
+      - router_name: rtr1
+        device_type: cisco_ios
+        ip_addr: 1.1.1.1
+      - router_name: rtr2
+        device_type: cisco_ios
+        ip_addr: 1.1.1.2
+      - router_name: rtr3
+        device_type: cisco_ios
+        ip_addr: 1.1.1.3
+  tasks:
+    - debug:
+        msg: "{{ item.router_name }}:  {{ item.ip_addr }}"
+      with_items: "{{ my_routers }}"
