@@ -1,0 +1,12 @@
+---
+- name: Full config load
+  hosts: pynet-rtr1
+  gather_facts: False
+  tasks:
+    - napalm_install_config:
+        provider: "{{ creds }}"
+        config_file: "CFGS/{{ inventory_hostname }}.txt"
+        diff_file: "DIFFS/{{ inventory_hostname }}.diff"
+        commit_changes: True
+        replace_config: True
+        get_diffs: True

@@ -1,0 +1,12 @@
+---
+- name: NAPALM Getters
+  hosts: cisco:nxos:junos:arista
+  tasks:
+    - name: NAPALM facts
+      napalm_get_facts: 
+            provider: "{{ creds }}"
+#            filter: "lldp_neighbors"
+            filter: "arp_table"
+
+    - debug:
+        var: napalm_arp_table

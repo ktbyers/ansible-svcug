@@ -1,0 +1,12 @@
+---
+- name: Load VLANs
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - napalm_install_config:
+        provider: "{{ creds }}"
+        config_file: "CFGS/vlans.txt"
+        diff_file: "DIFFS/{{ inventory_hostname }}.diff"
+        commit_changes: False
+        replace_config: False
+        get_diffs: True
