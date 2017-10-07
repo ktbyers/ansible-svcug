@@ -1,0 +1,2 @@
++router bgp 3
++  neighbor 10.10.10.1 remote-as 1

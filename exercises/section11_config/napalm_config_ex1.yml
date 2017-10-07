@@ -1,0 +1,23 @@
+---
+- name: Configure interfaces
+  hosts: csr1:csr3
+  gather_facts: False
+  tasks:
+    - template:
+        src: ./interfaces.j2
+        dest: "CFGS/{{ inventory_hostname }}.txt"
+      tags: gen_config
+
+    - napalm_install_config:
+        provider: "{{ creds }}"
+        config_file: "CFGS/{{ inventory_hostname }}.txt"
+        diff_file: "DIFFS/{{ inventory_hostname }}.diff"
+        commit_changes: False
+        replace_config: False
+        get_diffs: True
+
+    - napalm_ping:
+        provider: "{{ creds }}"
+        destination: "{{ peer_ip }}"
+        count: 3
+      tags: ping

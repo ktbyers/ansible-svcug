@@ -1,0 +1,22 @@
+---
+- name: Configure interfaces
+  hosts: csr1:csr3
+  gather_facts: False
+  tasks:
+    - template:
+        src: ./bgp.j2
+        dest: "CFGS/{{ inventory_hostname }}-bgp.txt"
+      tags: gen_config
+
+    - napalm_install_config:
+        provider: "{{ creds }}"
+        config_file: "CFGS/{{ inventory_hostname }}-bgp.txt"
+        diff_file: "DIFFS/{{ inventory_hostname }}.diff"
+        commit_changes: True
+        replace_config: False
+        get_diffs: True
+
+    - napalm_get_facts:
+        provider: "{{ creds }}"
+        filter: 'bgp_neighbors'
+      tags: bgp_verify
